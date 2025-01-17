@@ -100,16 +100,21 @@ export default function Home() {
           variants={itemVariants}
         >
           {[FaLinkedin, FaGithub, MdEmail, FaTwitter].map((Icon, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              variants={socialIconVariants}
-              whileHover="hover"
-              className="hover:text-blue-600 transition-colors duration-300"
-            >
-              <Icon />
-            </motion.a>
-          ))}
+    <motion.a
+      key={index}
+      href={
+        index === 0 ? 'https://www.linkedin.com/in/anuradha-lenka-531948229/' :
+        index === 1 ? 'https://github.com/lenkaanuradha' :
+        index === 2 ? 'mailto:b421008@iiit-bh.ac.in' :
+        'https://x.com/LenkaAnura6078'
+      }
+      variants={socialIconVariants}
+      whileHover="hover"
+      className="hover:text-blue-600 transition-colors duration-300"
+    >
+      <Icon />
+    </motion.a>
+  ))}
         </motion.div>
       </motion.div>
     </div>
