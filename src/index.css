@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+
   body {
     @apply bg-gradient-to-br from-blue-900 via-black to-purple-900 min-h-screen text-white;
     background-attachment: fixed;
   }
-}
 
-@layer utilities {
+
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
   }
-}
+
 
