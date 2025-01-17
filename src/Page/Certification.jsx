@@ -18,6 +18,7 @@ export default function Certification() {
     <div className="my-10 px-4 sm:px-6 lg:px-8">
       <h1 className="text-2xl sm:text-3xl font-bold text-white text-center mb-6 sm:mb-10">
         Certification
+        <hr className="w-20 h-1 mx-auto my-4 border-0 rounded md:my-3 bg-blue-500"/>
       </h1>
       <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-10">
         {certificates.map((cert, index) => (
