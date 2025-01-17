@@ -58,7 +58,7 @@ export default function Projects() {
           >
             <Card
               onClick={() => project.setIsOpen(!project.isOpen)}
-              className="h-full flex flex-col bg-black hover:bg-blue-100 border border-blue-500 rounded-2xl overflow-hidden cursor-pointer"
+              className="h-full flex flex-col bg-black hover:bg-black border border-blue-500 rounded-2xl overflow-hidden cursor-pointer"
             >
               <CardHeader>
                 <CardTitle className="text-white text-xl sm:text-2xl">{project.title}</CardTitle>
