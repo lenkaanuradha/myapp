@@ -14,91 +14,88 @@ export default function Projects() {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
+
+  const projects = [
+    {
+      title: "MyChatterBox",
+      image: "/images/chatapp.png",
+      description: "MyChatterBox is a real-time chat application using React, Node.js, MongoDB, and Socket.io, featuring secure authentication and messaging.",
+      link: "https://chatbox-lilac-five.vercel.app/",
+      isOpen: isOpen1,
+      setIsOpen: setIsOpen1,
+    },
+    {
+      title: "NewsHub",
+      image: "/images/newshub.png",
+      description: "News Hub is a platform where users can post, comment, and manage news with an admin panel for moderation.",
+      link: "https://news-hub-frontend.vercel.app/",
+      isOpen: isOpen2,
+      setIsOpen: setIsOpen2,
+    },
+    {
+      title: "MyClassroom",
+      image: "/images/classroom.png",
+      description: "MyClassroom is a platform where principals manage classrooms, assign teachers, and students view timetables and classmates.",
+      link: "https://myfrontend-steel.vercel.app/",
+      isOpen: isOpen3,
+      setIsOpen: setIsOpen3,
+    },
+  ];
+
   return (
-    <div className="my-10 ">
-     <h1 class="text-3xl font-bold text-white text-center  tracking-wide">Projects  <hr className="w-20 h-1 mx-auto my-4 border-0 rounded md:my-3 bg-blue-500"/></h1>
-      <div className="flex flex-row justify-between space-x-6">
-        <motion.Card
-          onClick={() => setIsOpen1(!isOpen1)}
-          className="mt-10 w-1/3 h-full transform transition duration-300 hover:scale-105 bg-black hover:bg-blue-100 rounded-3x border border-blue-500 rounded-2xl"
-        >
-          <CardHeader>
-            <CardTitle className="text-black">MyChatterBox</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <img
-              src="/images/chatapp.png"
-              alt="chat-app"
-              className="h-35 w-30"
-            />
-          </CardContent>
-          {isOpen1 && (
-            <motion.CardDescription>
-              MyChatterBox is a real-time chat application using React, Node.js,
-              MongoDB, and Socket.io, featuring secure authentication and
-              messaging.
-            </motion.CardDescription>
-          )}
-          <CardFooter>
-            <a
-              href="https://chatbox-lilac-five.vercel.app/"
-              className="text-blue-500 hover:underline  "
+    <div className="my-10 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl font-bold text-white text-center tracking-wide">
+        Projects
+        <hr className="w-20 h-1 mx-auto my-4 border-0 rounded md:my-3 bg-blue-500"/>
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="w-full"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Card
+              onClick={() => project.setIsOpen(!project.isOpen)}
+              className="h-full flex flex-col bg-black hover:bg-blue-100 border border-blue-500 rounded-2xl overflow-hidden cursor-pointer"
             >
-              Visit MyChatterBox
-            </a>
-          </CardFooter>
-        </motion.Card >
-        <motion.Card   onClick={() => setIsOpen2(!isOpen2)} className="mt-10 w-1/3 h-full transform transition duration-300 bg-black border border-blue-500  hover:scale-105 hover:bg-blue-100 rounded-2xl">
-          <CardHeader>
-            <CardTitle className="text-black">NewsHub</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <img
-              src="/images/newshub.png"
-              alt="chat-app"
-              className="h-35 w-30"
-            />
-          </CardContent>
-          {isOpen2 && (
-            <motion.CardDescription>
-              News Hub is a platform where users can post, comment, and manage news with an admin panel for moderation.
-            </motion.CardDescription>
-          )}
-          <CardFooter>
-            <a
-              href="https://news-hub-frontend.vercel.app/"
-              className="text-blue-500 hover:underline  "
-            >
-              Visit NewsHub
-            </a>
-          </CardFooter>
-        </motion.Card>
-        <motion.Card  onClick={() => setIsOpen3(!isOpen3)}  className="mt-10  border border-blue-500 w-1/3 h-full transform transition duration-300 hover:scale-105 bg-black hover:bg-blue-100 rounded-2xl">
-          <CardHeader>
-            <CardTitle className="text-black">MyClassroom</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <img
-              src="/images/classroom.png"
-              alt="chat-app"
-              className="h-35 w-30"
-            />
-          </CardContent>
-          {isOpen3 && (
-            <motion.CardDescription>
-              MyClassroom is a platform where principals manage classrooms, assign teachers, and students view timetables and classmates.
-            </motion.CardDescription>
-          )}
-          <CardFooter>
-            <a
-              href="https://myfrontend-steel.vercel.app/"
-              className="text-blue-500 hover:underline"
-            >
-              Visit MyClassroom
-            </a>
-          </CardFooter>
-        </motion.Card>
+              <CardHeader>
+                <CardTitle className="text-white text-xl sm:text-2xl">{project.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <img
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
+                  className="w-full h-40 sm:h-48 object-cover rounded-lg"
+                />
+                {project.isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <CardDescription className="mt-4 text-white text-sm sm:text-base">
+                      {project.description}
+                    </CardDescription>
+                  </motion.div>
+                )}
+              </CardContent>
+              <CardFooter>
+                <a
+                  href={project.link}
+                  className="text-blue-500 hover:underline text-sm sm:text-base"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit {project.title}
+                </a>
+              </CardFooter>
+            </Card>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
 }
+

@@ -1,41 +1,104 @@
+'use client'
+
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function About() {
-  return (
-    <div className="bg-gray-800 min-h-50vh flex items-center justify-center px-8 py-12 mb-10 mt-1 rounded-3xl border border-blue-600">
-      <div className="max-w-2xl text-center space-y-6 animate-fadeIn">
-        <h1 className="text-3xl font-bold text-white text-center  tracking-wide">
-          About Me
-          <hr className="w-10 h-1 mx-auto my-4 border-0 rounded md:my-3 bg-blue-500"/>
-        </h1>
-       
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
 
-        <p className="text-lg font-medium text-white-800 leading-relaxed">
-          <span className="font-semibold text-blue-500">Who I Am //</span> I am
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  return (
+    <div className="bg-gray-800 min-h-[50vh] flex items-center justify-center px-4 sm:px-8 py-8 sm:py-12 mb-10 mt-1 rounded-3xl border border-blue-600">
+      <motion.div 
+        className="max-w-2xl text-center space-y-4 sm:space-y-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1 
+          className="text-2xl sm:text-3xl font-bold text-white text-center tracking-wide"
+          variants={itemVariants}
+        >
+          About Me
+          <motion.hr 
+            className="w-10 h-1 mx-auto my-3 sm:my-4 border-0 rounded bg-blue-500"
+            initial={{ width: 0 }}
+            animate={{ width: "2.5rem" }}
+            transition={{ duration: 0.5 }}
+          />
+        </motion.h1>
+
+        <motion.p 
+          className="text-base sm:text-lg font-medium text-white leading-relaxed"
+          variants={itemVariants}
+        >
+          <motion.span 
+            className="font-semibold text-blue-500"
+            whileHover={{ scale: 1.1 }}
+          >
+            Who I Am //
+          </motion.span> I am
           not your average developer. Hello! My name is{" "}
-          <span className="font-bold underline decoration-blue-500">
+          <motion.span 
+            className="font-bold underline decoration-blue-500"
+            whileHover={{ scale: 1.1, color: "#3B82F6" }}
+          >
             Anuradha
-          </span>{" "}
+          </motion.span>{" "}
           and I enjoy creating things that live on the internet.
-        </p>
-        <p className="text-lg font-medium text-white-800 leading-relaxed">
-          With over <span className="text-blue-500 font-semibold">2 years</span>{" "}
+        </motion.p>
+
+        <motion.p 
+          className="text-base sm:text-lg font-medium text-white leading-relaxed"
+          variants={itemVariants}
+        >
+          With over <motion.span 
+            className="text-blue-500 font-semibold"
+            whileHover={{ scale: 1.1 }}
+          >2 years</motion.span>{" "}
           of experience in Web Development, I have worked on a variety of tech
           stacks. In my free time, I prefer{" "}
-          <span className="italic text-blue-500">Lofi music</span>
-          or some documentaries.
-        </p>
-        <p className="text-lg font-medium text-white-800 leading-relaxed">
+          <motion.span 
+            className="italic text-blue-500"
+            whileHover={{ scale: 1.1 }}
+          >Lofi music</motion.span>
+          {" "}or some documentaries.
+        </motion.p>
+
+        <motion.p 
+          className="text-base sm:text-lg font-medium text-white leading-relaxed"
+          variants={itemVariants}
+        >
           I'm an Information Technologies undergrad at{" "}
-          <span className="text-blue-500 font-semibold">
+          <motion.span 
+            className="text-blue-500 font-semibold"
+            whileHover={{ scale: 1.1 }}
+          >
             International Institute of Information Technology (IIIT) Bhubaneswar
-          </span>
+          </motion.span>
           .
-        </p>
-        <div>
-          
-        </div>
-      </div>
+        </motion.p>
+      </motion.div>
     </div>
   );
 }
+
