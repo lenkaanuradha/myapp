@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import Autoplay from "embla-carousel-autoplay"
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +10,9 @@ import {
 } from "@/components/ui/carousel";
 
 export default function CodingPro() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
   return (
     <div className="">
       <div className="w-full my-5">
@@ -17,6 +21,9 @@ export default function CodingPro() {
           <hr className="w-20 h-1 mx-auto my-4 border-0 rounded md:my-3 bg-blue-500"/>
         </h1>
         <Carousel
+        plugins={[plugin.current]}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}
           opts={{
             align: "start",
           }}

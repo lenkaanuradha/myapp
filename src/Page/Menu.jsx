@@ -17,7 +17,9 @@ export function Menu() {
         <MenubarPrimitive.Trigger className="p-3 text-black hover:text-gray-500  cursor-pointer">Projects</MenubarPrimitive.Trigger>
       </MenubarMenu>
       <MenubarMenu>
+        <a href="https://drive.google.com/file/d/1jZa9ag1DH9KHnsfWEuUda4f9FDiJc7wz/view?usp=sharing">
         <MenubarPrimitive.Trigger className="p-3 text-black hover:text-gray-500  cursor-pointer">Resume</MenubarPrimitive.Trigger>
+        </a>
       </MenubarMenu>
       <MenubarMenu>
         <MenubarPrimitive.Trigger className="p-3 text-black  hover:text-gray-500 cursor-pointer">Contact</MenubarPrimitive.Trigger>

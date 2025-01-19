@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-
+import { BorderBeam } from "@/components/ui/border-beam";
 export default function About() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -27,6 +27,7 @@ export default function About() {
   };
 
   return (
+    
     <div className="bg-gray-800 min-h-[50vh] flex items-center justify-center px-4 sm:px-8 py-8 sm:py-12 mb-10 mt-1 rounded-3xl border border-blue-600">
       <motion.div 
         className="max-w-2xl text-center space-y-4 sm:space-y-6"
@@ -98,6 +99,7 @@ export default function About() {
           .
         </motion.p>
       </motion.div>
+    
     </div>
   );
 }

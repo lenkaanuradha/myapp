@@ -8,6 +8,8 @@ import About from './components/ui/About';
 import CodingPro from './Page/CodingPro';
 import Certification from './Page/Certification';
 
+import Goals from './Page/Goals';
+
 
 
 function App() {
@@ -17,11 +19,16 @@ function App() {
     <>
    <Menu></Menu>
  <Home></Home>
+ 
  <About></About>
+ 
+ 
  <Skills></Skills>
  <Projects></Projects>
  <CodingPro></CodingPro>
  <Certification></Certification>
+ <Goals></Goals>
+
 
     </>
   )
